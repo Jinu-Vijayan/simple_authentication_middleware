@@ -9,7 +9,6 @@ const userData = [];
 function autherizationMiddleware(req,res,next){
     const userExists = userData.find(elem => req.body.email === elem.email && req.body.password === elem.password);
     if(userExists){
-        console.log(userExists)
         next();
     } else{
         res.status(401).json({
